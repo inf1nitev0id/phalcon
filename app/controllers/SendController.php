@@ -66,8 +66,6 @@ class SendController extends \Phalcon\Mvc\Controller
       $response->setStatusCode(200, 'OK');
       $response->send();
     } else {
-      http_response_code(400);
-      echo "Not OK";
       $response = new Phalcon\Http\Response();
       $response->setStatusCode(400, 'Bad Request');
       $response->send();
