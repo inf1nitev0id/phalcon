@@ -1,0 +1,41 @@
+<h3>Пользователи</h3>
+<table>
+  <tr>
+    <th>Hash</th>
+    <th>Name</th>
+    <th>Family</th>
+    <th>Data</th>
+    <th>Update</th>
+  </tr>
+<?php foreach ($users as $user) { ?>
+  <tr>
+    <td><?php echo $user['hash']; ?></td>
+    <td><?php echo $user['name']; ?></td>
+    <td><?php echo $user['family']; ?></td>
+    <td>
+      <ul>
+      <?php foreach ($user['data'] as $key => $value) { ?>
+        <li>
+        <?php
+          echo '"'.$key.'": ';
+          var_dump($value);
+        ?>
+        </li>
+      <?php } ?>
+      </ul>
+    </td>
+    <td><?php echo $user['update']; ?></td>
+    <td><?php echo Phalcon\Tag::linkTo('/users/edit/'.$user['hash'], 'Редактировать')." ".Phalcon\Tag::linkTo('/users/delete/'.$user['hash'], 'Удалить'); ?></td>
+  </tr>
+<?php } ?>
+</table>
+<h5>
+<?php
+  if ($pages > 1) {
+    echo "Страница ".$page." из ".$pages." - ";
+    for ($i = 1; $i <= $pages; $i++) {
+      echo Phalcon\Tag::linkTo('/users/'.$i, $i)." ";
+    }
+  }
+?>
+</h5>

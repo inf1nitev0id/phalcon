@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<?php use Phalcon\Tag; ?>
+<html>
+  <head>
+    <title>Тест</title>
+    <style>
+      nav li {
+        display: inline-block;
+      }
+      label {
+        display: block;
+      }
+      table tr:not(:first-child) td {
+        border-top: 1px solid #888;
+      }
+      table td {
+        vertical-align: top;
+      }
+      table ul {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <?php echo Tag::linkTo('/', 'Главная'); ?>
+        </li>
+        <li>
+          <?php echo Tag::linkTo('/users', 'Пользователи'); ?>
+        </li>
+        <li>
+          <?php echo Tag::linkTo('/send', 'Отправить'); ?>
+        </li>
+      </ul>
+    </nav>
+    <?php echo $this->getContent(); ?>
+  </body>
+</html>

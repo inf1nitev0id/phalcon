@@ -1,0 +1,29 @@
+<?php use Phalcon\Tag; ?>
+<h3>Редактирование</h5>
+<?php if ($error) {
+  echo "<p>".$error."</p>";
+} else {
+  echo Tag::form('users/editConfirm'); ?>
+  <div>
+    <label for="hash">Hash</label>
+    <?php echo Tag::numericField(['hash', 'value' => $user['hash'], 'required' => true, 'readonly' => true]); ?>
+  </div>
+  <div>
+    <label for="name">Name</label>
+    <?php echo Tag::textField(['name', 'value' => $user['name'], 'required' => true]); ?>
+  </div>
+  <div>
+    <label for="family">Family</label>
+    <?php echo Tag::textField(['family', 'value' => $user['family'], 'required' => true]); ?>
+  </div>
+  <div>
+    <label for="data">Data (сюда писать JSON)</label>
+    <?php echo Tag::textArea(['data', 'value' => json_encode($user['data'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE), 'required' => true]); ?>
+  </div>
+  <div>
+    <label for="update">Update</label>
+    <?php echo Tag::numericField(['update', 'value' => $user['update'], 'required' => true]); ?>
+  </div>
+  <?php echo Tag::submitButton('Сохранить'); ?>
+</form>
+<?php } ?>

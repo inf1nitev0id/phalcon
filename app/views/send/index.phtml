@@ -1,0 +1,26 @@
+<?php use Phalcon\Tag; ?>
+<h3>Отправить данные</h5>
+<?php echo Tag::form('send/send'); ?>
+  <div>
+    <label for="hash">Hash</label>
+    <?php echo Tag::numericField(['hash', 'required' => true]); ?>
+  </div>
+  <div>
+    <label for="name">Name</label>
+    <?php echo Tag::textField(['name', 'required' => true]); ?>
+  </div>
+  <div>
+    <label for="family">Family</label>
+    <?php echo Tag::textField(['family', 'required' => true]); ?>
+  </div>
+  <div>
+    <label for="data">Data (сюда писать JSON)</label>
+    <?php echo Tag::textArea(['data', 'required' => true]); ?>
+  </div>
+  <div>
+    <label for="update_date">Update</label>
+    <?php echo Tag::dateField(['update_date', 'required' => true]); ?>
+    <?php echo Tag::timeField(['update_time', 'required' => true]); ?>
+  </div>
+  <?php echo Tag::submitButton('Отправить'); ?>
+</form>
